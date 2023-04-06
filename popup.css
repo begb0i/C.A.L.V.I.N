@@ -1,0 +1,258 @@
+body {
+    font-family: 'Ubuntu';
+    max-width: 500px;
+    background: radial-gradient(circle,#24246e,#06051f);
+    color: white;
+
+}
+
+#extensionIcon {
+    float: right;
+    width: 80px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#subtitleStats {
+    color: #d5ece9c2;
+    font-style: oblique;
+    font-size: 12px;
+}
+
+#intervalInput {
+    background: none;
+    font-size: 14px;
+    border: 1px solid rgb(209 209 209 / 52%);
+    border-radius: 0.6em;
+    outline: none;
+    color: white;
+    padding: 4px 7px 4px 7px;
+}
+
+#automateButton:active,
+#summaryButton:active,
+#refreshButton:active,
+#summaryButton:hover,
+#refreshButton:hover,
+#intervalInput:hover,
+#intervalInput:hover::placeholder,
+.radio_input:checked+.radio_label {
+    background-color: white;
+    color: black;
+}
+
+#intervalInput::placeholder {
+    color: #d1d1d1;
+}
+
+#intervalInput::-webkit-outer-spin-button,
+#intervalInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#contentGroup {
+    display: flex;
+    color: white;
+    min-width: 500px;
+    max-height: 300px;
+    border-top: 2px solid #5c5a5a;
+    margin: 5px 0px 0px 0px;
+}
+
+#leftRow {
+    float: left;
+    width: 50%;
+}
+
+#rightRow {
+    float: right;
+    width: 50%;
+    margin-left: 5px;
+    color: #ffffffc4;
+}
+
+#temporaryLinkLabel {
+    color: wheat;
+}
+
+#loadFullButton {
+    background: none;
+    border: none;
+    color: #ffffff70;
+    padding: 0px;
+}
+
+#summaryButton,
+#refreshButton {
+    background: none;
+    border-radius: 0.6em;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(209 209 209 / 52%);
+    color: #d1d1d1;
+    font-size: 14px;
+    margin: 0px 0.9em 0px 0.1em;
+    padding: 4px 11px 4px 11px;
+}
+
+
+#automateButton {
+    background: none;
+    font-family: ubuntu;
+    border: none;
+    border-left: 2px solid rgb(255, 0, 0);
+    color: #d1d1d1;
+}
+
+#contentGroup {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: system-ui;
+}
+
+#contentGroup::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+#contentGroup::-webkit-scrollbar {
+    width: 5px;
+}
+
+#contentGroup::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+.radio {
+    display: inline-flex;
+    margin: 8px 0px 8px 0px;
+    background: none;
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid rgb(209 209 209 / 52%);
+    overflow: hidden;
+    font-family: ubuntu;
+    border-radius: 0.6em;
+}
+
+.radio_input {
+    display: none;
+}
+
+#automateButton:hover,
+.radio_input:hover+.radio_label {
+    background: hsl(233deg 6% 27%);
+    color: #b5b3b3;
+}
+
+.radio_label {
+    padding: 8px 14px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: none;
+    color: #d1d1d1;
+    transition: background 0.6s;
+}
+
+.wrapper span{
+    position: fixed;
+    top: -120px;
+    height: 50px;
+    width: 50px;
+    z-index: -1;
+    animation: animate 10s linear infinite;    
+}
+.wrapper span:nth-child(1){
+    left: 60px;
+    animation-delay:0.6s;
+    border: 5px solid cyan;
+}
+.wrapper span:nth-child(2){
+    left: 60%;
+    animation-delay: 3s;
+    width: 60px;
+    height: 60px;
+    background: #ff4293;
+}
+.wrapper span:nth-child(3){
+    left: 20%;
+    animation-delay: 2s;
+    border: 5px solid #fff;    
+}
+.wrapper span:nth-child(4){
+    left: 30%;
+    animation-delay: 5s;
+    width: 80px;
+    height: 80px;
+    background: #befb46;
+}
+.wrapper span:nth-child(5){
+    left: 40%;
+    animation-delay: 1s;
+    border: 5px solid #ff4293;
+}
+.wrapper span:nth-child(6){
+    left: 50%;
+    animation-delay: 7s;
+    border: 5px solid deepskyblue;
+}
+.wrapper span:nth-child(7){
+    left: 60%;
+    animation-delay: 6s;
+    width: 100px;
+    height: 100px;
+    background: #ffd59e;
+}
+.wrapper span:nth-child(8){
+    left: 70%;
+    animation-delay: 8s;
+    border: 5px solid #befb46;
+}
+.wrapper span:nth-child(9){
+    left: 80%;
+    animation-delay: 6s;
+    width: 90px;
+    height: 90px;
+    background: cyan;
+}
+.wrapper span:nth-child(10){
+    left: 90%;
+    animation-delay: 4s;
+    border: 5px solid #fff;    
+}
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.content h2{
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #fff;
+    font-family: montserrat;
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    text-align: center;
+    line-height: 0.9;
+}
+.content h2 b{
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+}
+@keyframes animate{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    80%{
+        opacity: 0.7;
+    }
+    100%{
+        transform: translateY(800px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
