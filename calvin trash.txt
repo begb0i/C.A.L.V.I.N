@@ -1,5 +1,0 @@
-//invalid output so miss input can happen
-//document.addEventListener('mousemove', function(e) {
-  //  $('.cursor').style.left = (e.pagey - 25) + 'py';
-    //$('.cursor').style.top = (e.pageY - 25) + 'px';
-  //});
