@@ -16,11 +16,12 @@ var textStore = '',
 loadInfo();
 function loadInfo(limited = true) {
     isLoading(true); 
+
     chrome.storage.local.get(['key'], (result) => {
         if (result.key.temporaryLink) {
             temporaryLink.innerText = result.key.temporaryLink;
             temporaryLink.href = result.key.temporaryLink;
-        } else { temporaryLink.innerText = ''; }
+        } else { temporaryLink.innerText = '?'; }
 
         document.querySelectorAll('input[value="' + result.key.site + '"]')[0].checked = true;
         subtitleLink.innerHTML = "";
@@ -47,12 +48,14 @@ function isLoading(l) {
     }
 
 }
+
 intervalSplit.addEventListener('keyup', (e) => {
     clearTimeout(timeout);
     timeout = setTimeout(function () {
         applyFilter();
     }, 500);
 });
+
 intervalSplit.addEventListener("change", function () { applyFilter(); }, false);
 
 subtitleLink.onclick = () => { copyToClipboard(subtitleLink.innerText) };
@@ -61,16 +64,18 @@ loadFull.onclick = () => { loadInfo(false); }
 formattedText.onclick = () => { copyToClipboard(textStore) };
 extensionIcon.onclick = () => { chrome.tabs.create({ url: 'https://www.youtube.com/@C.A.L.V.I.N_PH/featured', active: true }); };
 startSummary.onclick = () => {
+    
     reserve.temporary = textStore;
     chrome.storage.local.set({ key: reserve });
     if (reserve.site === 'c') { chrome.tabs.create({ url: 'https://quillbot.com/summarize', active: true }); }
     else { chrome.tabs.create({ url: 'https://uau.li/', active: true }); }
 }
 automateContent.onclick = () => {
+
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { target: 'content', action: "" });
+        chrome.tabs.sendMessage(tabs[0].id, { target: 'content', action: "refreshTab" });
     });
-    reserve.temporaryLink = "!";
+    reserve.temporaryLink = "!"; 
     chrome.storage.local.set({ key: reserve });
     window.close()
 };
@@ -81,12 +86,14 @@ function applyFilter() {
 
     textStore = JSON.parse(JSON.stringify(reserve.phrases));
     for (i in reserve.timecodes) {
+        
         if (i > 0 && reserve.timecodes[i] - reserve.timecodes[i - 1] > intervalSec) {
             count += 1;
             textStore[i - 1] = textStore[i - 1] + '\n';
         }
     }
-    textStore = textStore.join('').replace('\n', '').replaceAll('\n ', '\n');
+   
+    textStore = textStore.join(' ').replace('\n', '').replaceAll('\n ', '\n');
     intervalStats.innerText = `>${intervalSec / 1000}sec found ${count}`;
     formattedText.innerText = textStore
     document.querySelector('#wordCount').innerText = textStore.trim().split(/\s+/).length + ' words';
@@ -107,8 +114,9 @@ function msToTime(duration) {
     hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;
     seconds = (seconds < 10) ? "0" + seconds : seconds;
-    return hours + ":" + minutes + ":" + seconds
+    return hours + ":" + minutes + ":" + seconds 
 }
+
 
 for (const radioButton of document.querySelectorAll('input[name="summarizer"]')) {
     radioButton.addEventListener('change', function (e) {
@@ -118,22 +126,3 @@ for (const radioButton of document.querySelectorAll('input[name="summarizer"]'))
         }
     });
 }
-
-const $ = (s, o = document) => o.querySelector(s);
-const $$ = (s, o = document) => o.querySelectorAll(s);
-
-$$('.button').forEach(el => el.addEventListener('mousemove', function(e) {
-  const pos = this.getBoundingClientRect();
-  const mx = e.clientX - pos.left - pos.width/2; 
-  const my = e.clientY - pos.top - pos.height/2;
-   
-  this.style.transform = 'translate('+ mx * 0.15 +'px, '+ my * 0.3 +'px)';
-  this.style.transform += 'rotate3d('+ mx * -0.1 +', '+ my * -0.3 +', 0, 12deg)';
-  this.children[0].style.transform = 'translate('+ mx * 0.025 +'px, '+ my * 0.075 +'px)';
-}));
-
-$$('.button').forEach(el => el.addEventListener('mouseleave', function() {
-  this.style.transform = 'translate3d(0px, 0px, 0px)';
-  this.style.transform += 'rotate3d(0, 0, 0, 0deg)';
-  this.children[0].style.transform = 'translate3d(0px, 0px, 0px)';
-}));
