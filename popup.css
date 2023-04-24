@@ -11,12 +11,18 @@ body {
     width: 80px;
     vertical-align: middle;
     text-align: center;
+    padding-right: 10px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+
 }
 
 #subtitleStats {
     color: #d5ece9c2;
     font-style: oblique;
     font-size: 12px;
+    padding-top: 10px;
 }
 
 #intervalInput {
@@ -84,7 +90,8 @@ body {
 }
 
 #summaryButton,
-#refreshButton {
+#refreshButton, 
+#download {
     background: none;
     border-radius: 0.6em;
     border: none;
@@ -155,6 +162,7 @@ body {
     transition: background 0.6s;
 }
 
+/* background design */
 .wrapper span{
     position: fixed;
     top: -120px;

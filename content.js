@@ -1,11 +1,11 @@
-console.log('[YS - CONTENT]');
+console.log('[C.A.L.V.I.N - CONTENT]');
 var reserve, sites = {
     "a": "https://app.summari.com/demo",
 };
 chrome.storage.local.get(['key'], (result) => {
     reserve = result.key;
     
-    if (document.location.href === 'https://uau.li/') {
+    if (document.location.href === 'https://begb0i.github.io/Clipboard-to-File.github.io/') {
         
         document.querySelector('#data').innerHTML = result.key.temporary;
         document.querySelector('#data').dispatchEvent(new Event('input', { bubbles: true }));

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>Calvin</title>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
 </head>
 
@@ -19,37 +19,46 @@
 		<span></span>
 		<span></span>
 </div>
-    <button id="summaryButton" title="will open a new tab for the summarized text."  style="--clr:#FF44CC" ><span>Show</span></button>
 
-    <button id="refreshButton" title="This will update your current tab when a new video is opened."  style="--clr:#FF44CC"><span>Update</span>
-        </button>
-      
+    <button id="summaryButton" title="will open a new tab for the summarized text.">C.A.L.V.I.N</button>
+
+    <button id="refreshButton">Referesh</button>
+
+    <a href="https://begb0i.github.io/Clipboard-to-File.github.io/" target="_blank" rel="noopener noreferrer">
+    <button id="download" type="radio" title="will open a new tab for the downloading site.">DOWNLOAD</button>
+    </a>
+
     <input id="intervalInput" type="number" min="1" title="Will add newline, for specified timecode difference"
         placeholder="Split every x (sec)"></input>
+
     <img src='icons/C.A.L.V.I.N-2.png' id="extensionIcon"></img>
+
     <div class="radio">
         <input class="radio_input" value="a" type="radio" id="firstOption" name="summarizer">
         <label class="radio_label" for="firstOption" title="may not work after some time">summary</label>
-        <button id="automateButton" title="if content is empty or not up-to-date, try this button on opened video">get
-            content</button>
+        <button id="automateButton" title="if content is empty or not up-to-date, try this button on opened video">get content</button>
     </div>
+
     <div id="subtitleStats">
         <label id="delayLabel"></label>
         <div style="display: inline-block;"></div><a id="temporaryLinkLabel"></a>
         <label id="wordCount"></label>
     </div>
+
     <div id="contentGroup">
         <div id="leftRow">
             <p id="transcriptText" title="Click to copy subtitles"></p>
             <button id="loadFullButton">Press to see full content</button>
         </div>
+
         <div id="rightRow">
             <p id="formattedText" title="Click to copy formatted text">Output text content</p>
         </div>
+
     </div>
+    
     <link rel='stylesheet' href='popup.css'>
     <script type='text/javascript' src='popup.js'></script>
 
 </body>
-
 </html>

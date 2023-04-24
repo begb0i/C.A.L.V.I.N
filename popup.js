@@ -21,7 +21,7 @@ function loadInfo(limited = true) {
         if (result.key.temporaryLink) {
             temporaryLink.innerText = result.key.temporaryLink;
             temporaryLink.href = result.key.temporaryLink;
-        } else { temporaryLink.innerText = '?'; }
+        } else { temporaryLink.innerText = 'Click the left column to copy subtitles or Click the right column to copy the summarized text'; }
 
         document.querySelectorAll('input[value="' + result.key.site + '"]')[0].checked = true;
         subtitleLink.innerHTML = "";
@@ -64,18 +64,14 @@ loadFull.onclick = () => { loadInfo(false); }
 formattedText.onclick = () => { copyToClipboard(textStore) };
 extensionIcon.onclick = () => { chrome.tabs.create({ url: 'https://www.youtube.com/@C.A.L.V.I.N_PH/featured', active: true }); };
 startSummary.onclick = () => {
-    
-    reserve.temporary = textStore;
-    chrome.storage.local.set({ key: reserve });
-    if (reserve.site === 'c') { chrome.tabs.create({ url: 'https://quillbot.com/summarize', active: true }); }
-    else { chrome.tabs.create({ url: 'https://uau.li/', active: true }); }
+
 }
 automateContent.onclick = () => {
 
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { target: 'content', action: "refreshTab" });
     });
-    reserve.temporaryLink = "!"; 
+    reserve.temporaryLink = "Refersh the page if get content button didn't fuctioned as intended"; 
     chrome.storage.local.set({ key: reserve });
     window.close()
 };
@@ -94,9 +90,8 @@ function applyFilter() {
     }
    
     textStore = textStore.join(' ').replace('\n', '').replaceAll('\n ', '\n');
-    intervalStats.innerText = `>${intervalSec / 1000}sec found ${count}`;
     formattedText.innerText = textStore
-    document.querySelector('#wordCount').innerText = textStore.trim().split(/\s+/).length + ' words';
+    document.querySelector('#wordCount').innerText = textStore.trim().split(/\s+/).length + ' Words counted';
 }
 function copyToClipboard(text) {
     let copyFrom = document.createElement("textarea");
