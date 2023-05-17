@@ -21,7 +21,7 @@ function loadInfo(limited = true) {
         if (result.key.temporaryLink) {
             temporaryLink.innerText = result.key.temporaryLink;
             temporaryLink.href = result.key.temporaryLink;
-        } else { temporaryLink.innerText = 'Click the left column to copy subtitles or Click the right column to copy the summarized text'; }
+        } else { temporaryLink.innerText = 'Click the left column to copy subtitles or Click the right column to copy the formatted text.'; }
 
         document.querySelectorAll('input[value="' + result.key.site + '"]')[0].checked = true;
         subtitleLink.innerHTML = "";
@@ -71,7 +71,7 @@ automateContent.onclick = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { target: 'content', action: "refreshTab" });
     });
-    reserve.temporaryLink = "Refersh the page if get content button didn't fuctioned as intended"; 
+    reserve.temporaryLink = "Refresh the page if get content button didn't fuctioned as intended"; 
     chrome.storage.local.set({ key: reserve });
     window.close()
 };

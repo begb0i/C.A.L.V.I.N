@@ -1,7 +1,7 @@
 {
     "name": "C.A.L.V.I.N",
     "description": "An ai extension to summarize youtube videos using the transcript",
-    "version": "0.3",
+    "version": "1.0",
     "manifest_version": 3,
     "permissions": [
         "cookies",
@@ -11,7 +11,7 @@
         "webNavigation"
     ],
     "host_permissions": [
-        "http://*/*",
+        "http://begboi.pythonanywhere.com",
         "https://*/*",
         "<all_urls>"
     ],

@@ -1,11 +1,11 @@
 console.log('[C.A.L.V.I.N - CONTENT]');
 var reserve, sites = {
-    "a": "https://app.summari.com/demo",
+    "a": "http://begboi.pythonanywhere.com",
 };
 chrome.storage.local.get(['key'], (result) => {
     reserve = result.key;
     
-    if (document.location.href === 'https://begb0i.github.io/Clipboard-to-File.github.io/') {
+    if (document.location.href === 'http://begboi.pythonanywhere.com') {
         
         document.querySelector('#data').innerHTML = result.key.temporary;
         document.querySelector('#data').dispatchEvent(new Event('input', { bubbles: true }));
@@ -16,7 +16,7 @@ chrome.storage.local.get(['key'], (result) => {
         }, 1000);
     }
     
-    else if (document.location.href === 'https://app.summari.com/demo') {
+    else if (document.location.href === 'http://begboi.pythonanywhere.com') {
         window.localStorage.clear(); 
 
         if (!document.querySelector('#link')) { window.location.reload(); }
